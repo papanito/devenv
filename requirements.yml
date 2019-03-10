@@ -1,0 +1,6 @@
+# own roles
+- src: https://git@github.com/papanito/ansible-role-borg.git
+  name: papanito.borg
+  scm: git
+  version: master
+
