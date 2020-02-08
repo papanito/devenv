@@ -1,0 +1,32 @@
+- hosts: localhost
+  vars:
+    - backup_server: u146777.your-storagebox.de
+    - backup_user: u146777
+    - backup_port: 23
+    - backup_encryption_method: repokey
+    - target_dir: "./backups/test"
+  tasks:
+    # - name: install borg
+    #   package: 
+    #     name: borg
+    #     state: present
+    #   become: yes
+    - name: initialize borg if not already done
+      block:
+        - name: check status of borg repo
+          expect:
+            command: borg info ssh://{{backup_user}}@{{ backup_server }}:{{ backup_port }}/{{ target_dir }}
+            responses:
+              passphrase: "test"
+      rescue:
+      - name: initialize borg
+        #command: borg init --encryption={{ backup_encryption_method }} ssh://{{backup_user}}@{{ backup_server }}:{{ backup_port }}/{{ target_dir }}
+        expect:
+          command: borg init --encryption={{ backup_encryption_method }} ssh://{{backup_user}}@{{ backup_server }}:{{ backup_port }}/{{ target_dir }}
+          responses:
+            passphrase:
+            - "test"
+            - "test"
+            - "n"
+            - ""
+
