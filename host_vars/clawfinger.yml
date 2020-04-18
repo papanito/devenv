@@ -1,1 +1,4 @@
 hostname: clawfinger
+backup_name: clawfinger
+local_backup: true
+remote_backup: true

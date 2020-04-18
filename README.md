@@ -6,6 +6,7 @@ Ansible project to configure my dev environment
 - [Usage](#usage)
 - [Ansible vault](#ansible-vault)
 - [Backup](#backup)
+  - [Setup Backup](#setup-backup)
   - [Useful commands](#useful-commands)
     - [List Backups](#list-backups)
     - [Delete Backup Location](#delete-backup-location)
@@ -40,6 +41,12 @@ ansible-vault encrypt_string  'SupersecretPa$$phrase' --name 'backup_encryption_
 For personal backup I use [borg](https://borgbackup.readthedocs.io) and the [playbook backup.yml](./backup.yml) cares about the [intial setup](https://borgbackup.readthedocs.io/en/stable/usage/init.html) using `encryption=repokey`:
 
 > `repokey` and `keyfile` use `AES-CTR-256` for encryption and `HMAC-SHA256` for authentication in an encrypt-then-MAC (EtM) construction.
+
+### Setup Backup
+
+```bash
+ansible-playbook backup.yml --ask-become-pass  --limit $(hostname)
+```
 
 ### Useful commands
 

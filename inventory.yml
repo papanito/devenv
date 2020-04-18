@@ -3,3 +3,4 @@ all:
     clients:
       hosts:
         clawfinger:
+           ansible_connection: local
