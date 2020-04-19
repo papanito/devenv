@@ -4,11 +4,11 @@
   with_items:
     - stow
 
-- name: Get source folder
+- name: Get source folder for dot files
   set_fact:
-    source_location: "{{ lookup('env', 'PWD') }}/{{dotfiles_src}}/{{ dotfiles_profile }}"
+    source_location: "{{ lookup('env', 'PWD') }}/dot-files/{{ dotfiles_profile }}"
 
-- name: Recursively find /tmp files older than 2 days
+- name: Get all stow packages for profile '{{ dotfiles_profile }}'
   find:
     paths: "{{ source_location }}"
     file_type: directory

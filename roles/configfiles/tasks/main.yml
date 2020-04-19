@@ -1,8 +1,19 @@
-- name: Get source folder
+- name: Install stow
+  become: true
+  package: name={{ item }} state=latest
+  with_items:
+    - stow
+
+- name: Get source folder for private config files
   set_fact:
-    source_location: "{{ lookup('env', 'PWD') }}/config-files"
-- name: Create symbolic link for config files
-  file:
-    src: "{{ source_location }}"
-    dest: "~/config"
-    state: link
+    source_location: "{{ lookup('env', 'PWD') }}/config-files/{{ dotfiles_profile }}"
+
+- name: Get all stow packages for profile '{{ dotfiles_profile }}'
+  find:
+    paths: "{{ source_location }}"
+    file_type: directory
+  register: packages
+
+- name: Symlink private config files
+  shell: stow -d "{{ source_location }}" -t ~/ {{ item.path | basename }}
+  loop: "{{ packages.files }}"
