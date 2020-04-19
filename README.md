@@ -29,8 +29,8 @@ Ansible project to configure my dev environment
 
 There are additional submodules
 
-- [dot-files](git@gitlab.com:papanito/dot-files.git)
-- [config-files](git@gitlab.com:papanito/config-files.git)
+- [dot-files](git@gitlab.com:papanito/dot-files.git) for publicly available config files
+- [config-files](git@gitlab.com:papanito/config-files.git) for private config files
 
 ## Ansible vault
 
