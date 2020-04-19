@@ -2,21 +2,14 @@
 
 Ansible project to configure my dev environment
 
-- [Submodules](#submodules)
 - [Usage](#usage)
+- [Submodules](#submodules)
 - [Ansible vault](#ansible-vault)
 - [Backup](#backup)
   - [Setup Backup](#setup-backup)
   - [Useful commands](#useful-commands)
     - [List Backups](#list-backups)
     - [Delete Backup Location](#delete-backup-location)
-
-## Submodules
-
-There are additional submodules
-
-- [dot-files](git@gitlab.com:papanito/dot-files.git)
-- [config-files](git@gitlab.com:papanito/config-files.git)
 
 ## Usage
 
@@ -25,6 +18,19 @@ There are additional submodules
    ```bash
    ansible-galaxy install -r requirements.yml --force-with-deps --force
    ```
+
+2. Run playbook4
+
+   ```bash
+   ansible-playbook main.yml --ask-become-pass
+   ```
+
+## Submodules
+
+There are additional submodules
+
+- [dot-files](git@gitlab.com:papanito/dot-files.git)
+- [config-files](git@gitlab.com:papanito/config-files.git)
 
 ## Ansible vault
 

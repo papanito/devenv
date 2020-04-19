@@ -1,7 +1,0 @@
-- hosts: all
-  become: yes
-  tasks:
-    - name: install npm
-      package: 
-        name: npm
-        state: present

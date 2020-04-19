@@ -1,0 +1,19 @@
+- name: Install stow
+  become: true
+  package: name={{ item }} state=latest
+  with_items:
+    - stow
+
+- name: Get source folder
+  set_fact:
+    source_location: "{{ lookup('env', 'PWD') }}/{{dotfiles_src}}/{{ dotfiles_profile }}"
+
+- name: Recursively find /tmp files older than 2 days
+  find:
+    paths: "{{ source_location }}"
+    file_type: directory
+  register: packages
+
+- name: Symlink dotfiles
+  shell: stow -d "{{ source_location }}" -t ~/ {{ item.path | basename }}
+  loop: "{{ packages.files }}"
