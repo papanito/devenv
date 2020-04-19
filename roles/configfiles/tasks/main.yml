@@ -1,0 +1,8 @@
+- name: Get source folder
+  set_fact:
+    source_location: "{{ lookup('env', 'PWD') }}/config-files"
+- name: Create symbolic link for config files
+  file:
+    src: "{{ source_location }}"
+    dest: "~/config"
+    state: link
