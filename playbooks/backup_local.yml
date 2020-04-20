@@ -61,10 +61,10 @@
   - systemd_group: aedu
 
   pre_tasks:
-    - name: Check if target
+    - name: Check if {{ target_dir }} exists, otherwise skip backup creations
       stat:
         path: "{{ target_dir }}"
       register: stat_result
 
   roles:
-  - { role: papanito.borg, whe: stat_result }
+  - { role: papanito.borg, when: stat_result.stat.exists }
