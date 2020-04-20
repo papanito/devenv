@@ -1,6 +1,6 @@
 # Development Environment <!-- omit in toc -->
 
-Ansible project to configure my dev environment
+Ansible project to configure my dev environment(s)
 
 - [Usage](#usage)
 - [Submodules](#submodules)
@@ -17,7 +17,7 @@ Ansible project to configure my dev environment
    ansible-galaxy install -r requirements.yml --force-with-deps --force
    ```
 
-2. Run playbook4
+2. Run playbook
 
    ```bash
    ansible-playbook main.yml --ask-become-pass
