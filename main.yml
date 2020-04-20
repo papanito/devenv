@@ -33,9 +33,9 @@
     - git
     # - zsh
 
-# - name: Include backup playbook to setup remote backup
-#   import_playbook: playbooks/backup.yml
-#   when: remote_backup is defined
-# - name: Include backup playbook to setup local backup
-#   import_playbook: playbooks/backup_local.yml
-#   when: local_backup is defined
+- name: Include backup playbook to setup remote backup
+  import_playbook: playbooks/backup.yml
+  when: remote_backup is defined
+- name: Include backup playbook to setup local backup
+  import_playbook: playbooks/backup_local.yml
+  when: local_backup is defined
