@@ -1,6 +1,8 @@
+- name: kewlfft.aur
+- name: papanito.borg
 # own roles
-- src: https://git@github.com/papanito/ansible-role-borg.git
-  name: papanito.borg
-  scm: git
-  version: master
+# - src: https://git@github.com/papanito/ansible-role-borg.git
+#   name: papanito.borg
+#   scm: git
+#   version: master
 
