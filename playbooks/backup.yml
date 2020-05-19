@@ -27,8 +27,12 @@
   - backup_delete: false
   - backup_create: true
   - backup_exclude_list:
+    - "*/Games"
     - "*/Music"
     - "*/Videos/Movies"
+    - "*/Videos/Children"
+    - "*/Videos/Children"
+    - "*/Videos/Children"
     - "*/Videos/Children"
     - "*/Videos/Music"
     - "*/.cache"
