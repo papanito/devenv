@@ -3,8 +3,9 @@
 Ansible project to configure my dev environment(s)
 
 - [Usage](#usage)
-- [Submodules](#submodules)
+- [Git Sub-modules](#git-sub-modules)
 - [Ansible vault](#ansible-vault)
+- [Roles](#roles)
 - [Backup](#backup)
   - [Setup Backup](#setup-backup)
   - [List Backups](#list-backups)
@@ -23,22 +24,33 @@ Ansible project to configure my dev environment(s)
    ansible-playbook main.yml --ask-become-pass
    ```
 
-## Submodules
+## Git Sub-modules
 
-There are additional submodules
+There are additional sub-modules
 
-- [dot-files](git@gitlab.com:papanito/dot-files.git) for publicly available config files
-- [config-files](git@gitlab.com:papanito/config-files.git) for private config files
+- [dot-files](https://gitlab.com/papanito/dot-files.git) for publicly available config files
+- [config-files](https://gitlab.com/papanito/config-files.git) for private config files
+
+> **Remark**
+>
+> The project is hosted at [Gitlab](https://gitlab.com/papanito) and only synchronized to Github to share it with Github users.
 
 ## Ansible vault
 
-The password file is defines in `ansible.cfg` so none vault parameter has to be specified.
+The password file is defines in [`ansible.cfg`](./ansible.cfg) so that none vault parameter has to be specified in the project here. However you have to ensure that the referenced password files exists.
 
-Thus, the variable `backup_encryption_key` has to be created as follows:
+The variable `backup_encryption_key` has to be created as follows:
 
 ```bash
 ansible-vault encrypt_string  'SupersecretPa$$phrase' --name 'backup_encryption_key'
 ```
+
+## Roles
+
+- [config-files](./roles/config-files/README.md)
+- [dot-files](./roles/dot-files/README.md)
+- [git](./roles/git/README.md)
+- [zsh](./roles/zsh/README.md)
 
 ## Backup
 

@@ -1,6 +1,6 @@
 # Role "configfiles"
 
-Installs private config-files from git submodule `config-files` using `stow`
+Installs private config-files from git sub-module [`config-files`](https://gitlab.com/papanito/config-files.git) using `stow`
 
 |Variable|Description|Default Value|
 |--------|-----------|-------------|

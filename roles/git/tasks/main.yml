@@ -1,8 +1,7 @@
 - name: Install git related packages
   aur:
-    name:
-    - git-extras
-    skip_installed: true
+    name: git-extras
+    upgrade: yes
     when: ansible_facts['os_family'] == "Archlinux"
 - name: Configure git user.name
   git_config:

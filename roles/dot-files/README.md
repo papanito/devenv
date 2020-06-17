@@ -1,6 +1,6 @@
-# Role "dotfiles"
+# Role "dot-files"
 
-Installs dot-files from git submodule `dot-files` using `stow`
+Installs private config-files from git sub-module [`dot-files`](https://gitlab.com/papanito/dot-files.git) using `stow`
 
 |Variable|Description|Default Value|
 |--------|-----------|-------------|

@@ -28,10 +28,10 @@
           63643464636634346436663961323663383235353939316638663632333833336363
   roles:
     #- core
-    - dotfiles
-    - configfiles
+    - dot-files
+    - config-files
     - git
-    # - zsh
+    - zsh
 
 - name: Include backup playbook to setup remote backup
   import_playbook: playbooks/backup.yml
