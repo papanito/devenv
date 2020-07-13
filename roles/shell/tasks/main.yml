@@ -1,0 +1,19 @@
+---
+- name: Install and configure zsh
+  block:
+  - name: Install zsh and stow
+    become: true
+    package: name={{ item }} state=latest
+    with_items:
+      - zsh
+  - name: Change default shell to zsh
+    become: true
+    user: shell='/usr/bin/zsh' name={{ ansible_ssh_user }}
+
+- name: Install tools
+  block:
+  - name: Install tools
+    become: true
+    package: name={{ item }} state=latest
+    with_items:
+      - tmux
