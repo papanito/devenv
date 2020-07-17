@@ -1,0 +1,4 @@
+job1:
+  image: registry.gitlab.com/imagedb/ansible-lint
+  script:
+    - ansible-lint main.yml
