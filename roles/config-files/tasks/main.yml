@@ -1,6 +1,6 @@
 - name: Install stow
   become: true
-  package: name={{ item }} state=latest
+  package: name={{ item }} state=latest # noqa 403
   with_items:
     - stow
 
@@ -15,5 +15,5 @@
   register: packages
 
 - name: Symlink private config files
-  shell: stow -d "{{ source_location }}" -t ~/ {{ item.path | basename }}
+  shell: stow -d "{{ source_location }}" -t ~/ {{ item.path | basename }}  # noqa 305 301
   loop: "{{ packages.files }}"

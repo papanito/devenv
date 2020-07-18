@@ -1,6 +1,6 @@
 [submodule "dot-files"]
    path = dot-files
-   url = git@gitlab.com:papanito/dot-files.git
+   url = ../../papanito/dot-files.git
 [submodule "config-files"]
    path = config-files
-   url = git@gitlab.com:papanito/config-files.git
+   url = ../../papanito/config-files.git

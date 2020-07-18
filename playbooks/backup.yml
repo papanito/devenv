@@ -78,6 +78,6 @@
   - backup_prune_keep_yearly: 1
   - systemd_user: aedu
   - systemd_group: aedu
-  
+
   roles:
   - role: papanito.borg

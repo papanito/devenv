@@ -1,0 +1,10 @@
+- hosts: all
+  vars:
+    source_path: "{{ lookup('env', 'PWD') }}/config-files/{{ dotfiles_profile }}/config/config/computer/{{ hostname }}/pacman.list"
+    dotfiles_profile: "personal"
+
+  tasks:
+  - debug:
+      msg: "{{ item }}"
+
+    with_items: "{{ lookup ('file', source_path) }}"

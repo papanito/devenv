@@ -1,4 +1,19 @@
-job1:
-  image: registry.gitlab.com/imagedb/ansible-lint
+stages:
+  - verify
+
+before_script:
+  - whoami
+  - apt-get update -qy #update system
+  - apt-get install ansible ansible-lint -qy
+  - git submodule update --init
+  - ansible --version
+  - ansible-lint --version
+  - ansible-galaxy install -r requirements.yml
+
+ansible-verify:
+  stage: verify
   script:
-    - ansible-lint main.yml
+    - ansible-lint -v *.yml
+    - ansible-lint -v playbooks/*.yml
+    - ansible-playbook --syntax-check main.yml
+    - ansible-playbook --syntax-check playbooks/*.yml

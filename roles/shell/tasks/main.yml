@@ -3,17 +3,17 @@
   block:
   - name: Install zsh and stow
     become: true
-    package: name={{ item }} state=latest
+    package: name={{ item }} state=latest # noqa 403
     with_items:
       - zsh
   - name: Change default shell to zsh
     become: true
-    user: shell='/usr/bin/zsh' name={{ ansible_ssh_user }}
+    user: "shell='/usr/bin/zsh' name={{ ansible_ssh_user }}" # noqa 301
 
 - name: Install tools
   block:
   - name: Install tools
     become: true
-    package: name={{ item }} state=latest
+    package: name={{ item }} state=latest # noqa 403
     with_items:
       - tmux
