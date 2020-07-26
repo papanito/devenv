@@ -32,6 +32,7 @@
     - config-files
     - git
     - shell
+    - { role: papanito.cloudflared, install_only: True }
 
 - name: Include backup playbook to setup remote backup
   import_playbook: playbooks/backup.yml

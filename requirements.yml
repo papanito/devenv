@@ -1,5 +1,6 @@
 - name: kewlfft.aur
 - name: papanito.borg
+- name: papanito.cloudflared
 # own roles
 # - src: https://git@github.com/papanito/ansible-role-borg.git
 #   name: papanito.borg
