@@ -17,3 +17,4 @@
     package: name={{ item }} state=latest # noqa 403
     with_items:
       - tmux
+      - bashtop
