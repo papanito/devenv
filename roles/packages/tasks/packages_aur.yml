@@ -1,0 +1,5 @@
+- name: Install {{ aur_package }}
+  block:
+    - aur:
+        name: "{{ aur_package }}"
+        state: latest

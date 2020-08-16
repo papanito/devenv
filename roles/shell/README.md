@@ -1,3 +1,3 @@
-# Role "zsh"
+# Role "k8s"
 
-Installs and configure `zsh`.
+Installs and configure `k8s` tools.

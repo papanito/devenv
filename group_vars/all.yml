@@ -1,0 +1,8 @@
+packages:
+  - tmux
+  - bashtop
+
+# for arch linux, packages only found in aur
+aur_packages:
+  - git-extras
+  - lens-bin
