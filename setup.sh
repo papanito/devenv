@@ -57,7 +57,7 @@ if ($RUNPLAY); then
    echo "---------------------------------------------------"
    echo "Run ansible play '$SITE_YML' with '$APPLY'"
    echo "---------------------------------------------------"
-   ansible-playbook $SITE_YML $APPLY
+   ansible-playbook $SITE_YML $APPLY  --ask-become-pass
 fi
 
 if ($UPGRADE); then

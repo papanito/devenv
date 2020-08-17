@@ -12,17 +12,11 @@ Ansible project to configure my dev environment(s)
 
 ## Usage
 
-1. Install dependencies
+Use `setup.sh` to install dependencies and run playbook
 
-   ```bash
-   ansible-galaxy install -r requirements.yml --force-with-deps --force
-   ```
-
-2. Run playbook
-
-   ```bash
-   ansible-playbook main.yml --ask-become-pass
-   ```
+```bash
+./setup.sh -pa
+```
 
 ## Git Sub-modules
 
@@ -33,7 +27,7 @@ There are additional sub-modules
 
 > **Remark**
 >
-> The project is hosted at [Gitlab](https://gitlab.com/papanito) and only synchronized to Github to share it with Github users.
+> The project is hosted at [Gitlab](https://gitlab.com/papanito). I automatically synchronize it to Github to share it with Github users.
 
 ## Ansible vault
 
@@ -47,8 +41,10 @@ ansible-vault encrypt_string  'SupersecretPa$$phrase' --name 'backup_encryption_
 
 ## Roles
 
+- [core](./roles/core/README.md)
 - [config-files](./roles/config-files/README.md)
 - [dot-files](./roles/dot-files/README.md)
+- [packages](./roles/packages/README.md)
 - [git](./roles/git/README.md)
 - [zsh](./roles/zsh/README.md)
 
