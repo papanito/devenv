@@ -1,3 +1,6 @@
-# Role "core"
+# Role "core"  <!-- omit in toc -->
 
-Core stuff - TBD
+This role is used for setting up different core functionality
+
+- Mount shares
+

@@ -27,12 +27,13 @@
           3263343939656361300a656632316164633961356362346438323534666637636264313135613162
           63643464636634346436663961323663383235353939316638663632333833336363
   roles:
-    #- core
+    - core
     - packages
     - dot-files
     - config-files
     - git
     - shell
+    - papanito.diskmounter
     - { role: papanito.cloudflared, install_only: True }
 
 - name: Include backup playbook to setup remote backup

@@ -1,0 +1,5 @@
+## nfs-utils 2.5.1-1 [installed]
+#    Support programs for Network File Systems
+#core/nfsidmap 2.5.1-1 [installed]
+#    Library to help mapping IDs, mainly for NFSv4
+#extra/gvfs-nfs
