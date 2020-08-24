@@ -1,6 +1,9 @@
 [submodule "dot-files"]
-   path = dot-files
-   url = ../../papanito/dot-files.git
+	path = resources/dot-files
+	url = git@gitlab.com:papanito/dot-files.git
 [submodule "config-files"]
-   path = config-files
-   url = ../../papanito/config-files.git
+	path = resources/config-files
+	url = git@gitlab.com:papanito/config-files.git
+[submodule "shell-scripts"]
+	path = resources/shell-scripts
+	url = git@gitlab.com:papanito/shell-scripts.git

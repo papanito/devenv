@@ -1,12 +1,7 @@
-- name: Install stow
-  become: true
-  package: name={{ item }} state=latest # noqa 403
-  with_items:
-    - stow
 
 - name: Get source folder for private config files
   set_fact:
-    source_location: "{{ lookup('env', 'PWD') }}/config-files/{{ dotfiles_profile }}"
+    source_location: "{{ lookup('env', 'PWD') }}/resources/config-files/{{ dotfiles_profile }}"
 
 - name: Get all stow packages for profile '{{ dotfiles_profile }}'
   find:
@@ -15,5 +10,5 @@
   register: packages
 
 - name: Symlink private config files
-  shell: stow -d "{{ source_location }}" -t ~/ {{ item.path | basename }}  # noqa 305 301
+  shell: stow -d "{{ source_location }}" -t ~/ {{ item.path | basename }} -R # noqa 305 301
   loop: "{{ packages.files }}"

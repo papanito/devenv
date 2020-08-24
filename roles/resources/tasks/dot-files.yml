@@ -1,0 +1,13 @@
+- name: Get source folder for dot files
+  set_fact:
+    source_location: "{{ lookup('env', 'PWD') }}/resources/dot-files/{{ dotfiles_profile }}"
+
+- name: Get all stow packages for profile '{{ dotfiles_profile }}'
+  find:
+    paths: "{{ source_location }}"
+    file_type: directory
+  register: packages
+
+- name: Symlink dotfiles
+  shell: stow -d "{{ source_location }}" -t ~/ {{ item.path | basename }} -R # noqa 301 305
+  loop: "{{ packages.files }}"

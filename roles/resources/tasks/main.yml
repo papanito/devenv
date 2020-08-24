@@ -1,0 +1,11 @@
+- name: Install stow
+  become: true
+  package: name={{ item }} state=latest # noqa 403
+  with_items:
+    - stow
+
+- name: Get dot-files
+  include_tasks: dot-files.yml
+- name: Get config-files
+  include_tasks: config-files.yml
+

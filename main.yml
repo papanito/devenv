@@ -29,8 +29,7 @@
   roles:
     - core
     - packages
-    - dot-files
-    - config-files
+    - { role: resources, stow_version: 2.2.2-5 }
     - git
     - shell
     - papanito.diskmounter

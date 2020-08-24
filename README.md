@@ -24,6 +24,7 @@ There are additional sub-modules
 
 - [dot-files](https://gitlab.com/papanito/dot-files.git) for publicly available config files
 - [config-files](https://gitlab.com/papanito/config-files.git) for private config files
+- [shell-scripts](https://gitlab.com/papanito/config-files.git) for private config files
 
 > **Remark**
 >
@@ -42,8 +43,7 @@ ansible-vault encrypt_string  'SupersecretPa$$phrase' --name 'backup_encryption_
 ## Roles
 
 - [core](./roles/core/README.md)
-- [config-files](./roles/config-files/README.md)
-- [dot-files](./roles/dot-files/README.md)
+- [resources](./roles/resources/README.md)
 - [packages](./roles/packages/README.md)
 - [git](./roles/git/README.md)
 - [zsh](./roles/zsh/README.md)
