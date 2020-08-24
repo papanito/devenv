@@ -3,6 +3,7 @@
   loop: "{{ packages }}"
   loop_control:
     loop_var: package
+
 - include_tasks: packages_aur.yml
   when: ansible_facts['os_family'] == "Archlinux"
   ignore_errors: yes
