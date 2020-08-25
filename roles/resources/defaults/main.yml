@@ -2,4 +2,4 @@
 stow_target_default: ~/
 stow_targets:
   scripts: ~/bin
-  nautilus: ~/.local/share/nautilus/scripts/
+  nautilus: ~/.local/share/nautilus/
