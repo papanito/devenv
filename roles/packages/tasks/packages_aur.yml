@@ -1,5 +1,5 @@
 - name: Install {{ aur_package }}
   block:
-    - aur:
+    - aur: # noqa 502
         name: "{{ aur_package }}"
         state: latest

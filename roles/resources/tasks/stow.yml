@@ -7,5 +7,5 @@
     stow_target_default: "{{ stow_targets[package_name] }}"
   when: stow_targets[package_name] is defined
 
-- name: Symlink {{ package_name }} to {{ stow_target_default }} from {{ source_location }}
-  shell: stow -d "{{ source_location }}" -t {{ stow_target_default }} {{ package_name }} -R # noqa 301 305
+- name: Symlink {{ package_name }} to {{ stow_target_default }} from {{ source_location }} # noqa 301 305
+  shell: stow -d "{{ source_location }}" -t {{ stow_target_default }} {{ package_name }} -R
