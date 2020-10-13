@@ -47,3 +47,52 @@ smb_shares:
       #     6265393134373065320a376363663066356231343430363662623737623933333764343430353666
       #     64326339636139326165326561396435653632303336323735343437366134326365
       # domain: "{{ domain }}"
+backup_exclude_list:
+- "*/Games"
+- "*/Music"
+- "*/Videos/Movies"
+- "*/Videos/Children"
+- "*/Videos/Music"
+- "*/.cache"
+- "*/cache*"
+- "*/Dropbox"
+- "*/gnome-shell"
+- "*/*.log"
+- "*/bin/*"
+- "*/Virtualbox"
+- "*/node_modules"
+- "*/*Cache"
+- "*/*cache"
+- "*/*thumbs"
+- "*/.thumbnails"
+- "*/*.iso"
+- "*/Trash"
+- "*/Public"
+- "*/share"
+- "*/.nuget"
+- "*/.mozilla"
+- "*/.chrome"
+- "*/.local"
+- "*/.wine"
+- "*/.eclipse"
+- "*/.donet"
+- "*/.steam"
+- "*/.Android*"
+- "*/.android*"
+- "*/.Apache*"
+- "*/Downloads"
+- "**/tmp"
+- "*/tmp"
+- "*/google-chrome*"
+- "*/.dotnet"
+- "Workspace"
+- "*/node_modules"
+backup_schedule: "*-*-* 05:00:00"
+backup_include_list:
+- /home/aedu
+backup_prune_keep_daily: 7
+backup_prune_keep_weekly: 4
+backup_prune_keep_monthly: 6
+backup_prune_keep_yearly: 1
+systemd_user: aedu
+systemd_group: aedu
