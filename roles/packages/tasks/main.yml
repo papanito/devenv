@@ -10,3 +10,7 @@
   loop: "{{ aur_packages }}"
   loop_control:
     loop_var: aur_package
+
+# cd Photos
+# pipenv install gphotos-sync
+# pipenv run gphotos-sync ~/Pictures/Photos

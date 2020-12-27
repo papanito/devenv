@@ -48,7 +48,11 @@ smb_shares:
       #     64326339636139326165326561396435653632303336323735343437366134326365
       # domain: "{{ domain }}"
 backup_exclude_list:
+- "*/go"
+- "*/gPodder"
+- "*/snap"
 - "*/Games"
+- "*/Insync"
 - "*/Music"
 - "*/Videos/Movies"
 - "*/Videos/Children"
@@ -87,7 +91,6 @@ backup_exclude_list:
 - "*/google-chrome*"
 - "*/.dotnet"
 - "Workspace"
-- "*/node_modules"
 backup_schedule: "*-*-* 05:00:00"
 backup_include_list:
 - /home/aedu
