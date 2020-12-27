@@ -32,12 +32,15 @@
     - { role: resources, stow_version: 2.2.2-5 }
     - git
     - shell
-    - papanito.diskmounter
+    - { role: papanito.diskmounter, ignore_errors: yes }
     - { role: papanito.cloudflared, install_only: True }
 
 - name: Include backup playbook to setup remote backup
   import_playbook: playbooks/backup.yml
   when: remote_backup is defined
-- name: Include backup playbook to setup local backup
-  import_playbook: playbooks/backup_local.yml
+- name: Include backup playbook to setup local backup to WD Elements
+  import_playbook: playbooks/backup_local_elements.yml
+  when: local_backup is defined
+- name: Include backup playbook to setup local backup to portable elements disk
+  import_playbook: playbooks/backup_local_portable.yml
   when: local_backup is defined

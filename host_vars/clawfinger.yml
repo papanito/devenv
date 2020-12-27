@@ -80,6 +80,7 @@ backup_exclude_list:
 - "*/.Android*"
 - "*/.android*"
 - "*/.Apache*"
+- "*/.dartServer"
 - "*/Downloads"
 - "**/tmp"
 - "*/tmp"
