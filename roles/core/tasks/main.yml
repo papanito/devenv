@@ -3,5 +3,6 @@
 #core/nfsidmap 2.5.1-1 [installed]
 #    Library to help mapping IDs, mainly for NFSv4
 #extra/gvfs-nfs
-- pip:
+- name: install modules required by ansible
+  pip:
     name: ['pexpect']

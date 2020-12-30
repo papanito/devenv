@@ -25,14 +25,14 @@
   - backup_port: 23
   - backup_encryption_method: repokey
   - target_dir: "./backups/"
-  
+
   tasks:
   - name: Set `target_location` to remote
     set_fact:
       target_location: "{{ protocol }}://{{ backup_user }}@{{ backup_server }}:{{ backup_port }}/{{ target_dir }}"
   - name: Show backups
     expect:
-      command: borg list {{target_location}}/{{ backup_name }}
+      command: borg list {{ target_location }}/{{ backup_name }}
       responses:
         passphrase: "{{ backup_encryption_key }}"
     register: backups
