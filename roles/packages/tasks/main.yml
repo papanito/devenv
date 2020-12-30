@@ -1,3 +1,9 @@
+- include_tasks: packages_pip.yml
+  ignore_errors: yes
+  loop: "{{ pip_packages }}"
+  loop_control:
+    loop_var: pip_package
+
 - include_tasks: packages.yml
   ignore_errors: yes
   loop: "{{ packages }}"
@@ -10,6 +16,7 @@
   loop: "{{ aur_packages }}"
   loop_control:
     loop_var: aur_package
+
 
 # cd Photos
 # pipenv install gphotos-sync

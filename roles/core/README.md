@@ -3,4 +3,3 @@
 This role is used for setting up different core functionality
 
 - Mount shares
-

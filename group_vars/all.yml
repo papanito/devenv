@@ -6,3 +6,7 @@ packages:
 aur_packages:
   - git-extras
   - lens-bin
+
+pip_packages:
+  - pexpect
+  - pre-commit

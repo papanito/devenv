@@ -16,6 +16,7 @@ These are all variables
 |---------|-----------|-------------|
 |`packages`|List of packages to instal from repos|-|
 |`aur_packages`|List of packages to install from aur, applies only to Arch-based distros|-|
+|`pip_packages`|List of packages to install from pip|-|
 
 
 ## Examples
