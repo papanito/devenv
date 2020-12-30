@@ -13,7 +13,7 @@ before_script:
 ansible-verify:
   stage: verify
   script:
-    - ansible-lint -v *.yml
+    - ansible-lint -v *.yml --exclude /root/.ansible
     - ansible-lint -v playbooks/*.yml
     - ansible-playbook --syntax-check main.yml
     - ansible-playbook --syntax-check playbooks/*.yml
