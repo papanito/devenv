@@ -26,12 +26,43 @@
           37653335396436663934646630323932363464653564663437633435663665386437363265343037
           3263343939656361300a656632316164633961356362346438323534666637636264313135613162
           63643464636634346436663961323663383235353939316638663632333833336363
+    default_workspace: "~/Workspaces/tools"
+    git_repos:
+      social-analyzer:
+        repo: git@github.com:qeeqbox/social-analyzer.git
+      airgeddon:
+        repo: git@github.com:v1s1t0r1sh3r3/airgeddon.git
+        dependencies:
+          - { name: crunch, type: aur }
+          - aircrack-ng
+          - xterm
+          - ettercap
+          - pixiewps
+          - dhcp
+          - hostapd
+          - sslstrip
+          - hcxdumptool
+          - reaver
+          - hcxtools
+          - beef-project
+          - lighttpd
+          - openssl
+          - bettercap
+          - { name: asleap, type: aur }
+          - hashcat
+          - wireshark-cli
+          - mdk4
+          - bully
+          - { name: hostapd-wpe, type: aur }
+          - dsniff
+          - hcloud-python
   roles:
     - core
     - packages
     - { role: resources, stow_version: 2.2.2-5 }
     - git
     - shell
+    - { role: papanito.git, ignore_errors: yes }
     - { role: papanito.diskmounter, ignore_errors: yes }
     - { role: papanito.cloudflared, install_only: True }
 
