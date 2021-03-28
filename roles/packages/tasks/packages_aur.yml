@@ -3,3 +3,4 @@
     - aur: # noqa 502
         name: "{{ aur_package }}"
         state: latest
+      ignore_errors: true
