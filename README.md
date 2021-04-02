@@ -24,7 +24,7 @@ There are additional sub-modules
 
 - [dot-files](https://gitlab.com/papanito/dot-files.git) for publicly available config files
 - [config-files](https://gitlab.com/papanito/config-files.git) for private config files
-- [shell-scripts](https://gitlab.com/papanito/config-files.git) for private config files
+- [shell-scripts](https://gitlab.com/papanito/config-files.git) for shell and nautilus scripts
 
 > **Remark**
 >
@@ -42,11 +42,13 @@ ansible-vault encrypt_string  'SupersecretPa$$phrase' --name 'backup_encryption_
 
 ## Roles
 
+Beside of [external roles](./requirements.yml), I have some roles defined as part of this project, which are:
+
 - [core](./roles/core/README.md)
 - [resources](./roles/resources/README.md)
 - [packages](./roles/packages/README.md)
 - [git](./roles/git/README.md)
-- [zsh](./roles/zsh/README.md)
+- [shell](./roles/shell/README.md)
 
 ## Backup
 
