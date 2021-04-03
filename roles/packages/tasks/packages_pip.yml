@@ -1,2 +1,2 @@
 - pip:
-    name: "{{ pip_package }}"
+    name: "{{ pip_package }}" #noqa unnamed-task

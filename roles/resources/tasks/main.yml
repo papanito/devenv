@@ -4,48 +4,6 @@
   with_items:
     - stow
 
-## public dot-files
-- name: Get source folder for dot files
-  set_fact:
-    source_location: "{{ lookup('env', 'PWD') }}/resources/dot-files/{{ dotfiles_profile }}"
-
-- name: Get all stow packages for profile '{{ dotfiles_profile }}'
-  find:
-    paths: "{{ source_location }}"
-    file_type: directory
-  register: packages
-
-- name: Deploy dot-files
-  include_tasks: stow.yml
-  loop: "{{ packages.files }}"
-
-## private config-files
-- name: Get source folder for private config files
-  set_fact:
-    source_location: "{{ lookup('env', 'PWD') }}/resources/config-files/{{ dotfiles_profile }}"
-
-- name: Get all stow packages for profile '{{ dotfiles_profile }}'
-  find:
-    paths: "{{ source_location }}"
-    file_type: directory
-  register: packages
-
-- name: Deploy config-files
-  include_tasks: stow.yml
-  loop: "{{ packages.files }}"
-
-## shell script:
-## private config-files
-- name: Get source folder for private config files
-  set_fact:
-    source_location: "{{ lookup('env', 'PWD') }}/resources/shell-scripts/"
-
-- name: Get all stow packages for profile '{{ dotfiles_profile }}'
-  find:
-    paths: "{{ source_location }}"
-    file_type: directory
-  register: packages
-
-- name: Deploy shell scripts
-  include_tasks: stow.yml
-  loop: "{{ packages.files }}"
+- name: Install resource folder
+  include_tasks: install_resources.yml
+  loop: "{{ resource_folders | dict2items }}"

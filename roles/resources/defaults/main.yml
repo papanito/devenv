@@ -1,5 +1,9 @@
 
 stow_target_default: ~/
-stow_targets:
-  scripts: ~/bin
-  nautilus: ~/.local/share/nautilus/
+resource_folders:
+  dot-files:
+  config-files:
+  shell-scripts:
+    no_profile: true
+    scripts: ~/bin
+    nautilus: ~/.local/share/nautilus/

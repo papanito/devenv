@@ -37,5 +37,6 @@
         passphrase: "{{ backup_encryption_key }}"
     register: backups
 
-  - debug:
+  - name: Print backup status
+    debug:
       var: backups.stdout_lines
