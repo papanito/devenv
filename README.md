@@ -1,18 +1,10 @@
-# Development Environment <!-- omit in toc -->
+# Development Environment
 
 Ansible project to configure my dev environment(s)
 
-- [Usage](#usage)
-- [Git Sub-modules](#git-sub-modules)
-- [Ansible vault](#ansible-vault)
-- [Roles](#roles)
-- [Backup](#backup)
-  - [Setup Backup](#setup-backup)
-  - [List Backups](#list-backups)
-
 ## Usage
 
-Use `setup.sh` to install dependencies and run playbook
+Use `setup.sh` to install dependencies and run playbook `main.yml`
 
 ```bash
 ./setup.sh -pa
@@ -20,21 +12,19 @@ Use `setup.sh` to install dependencies and run playbook
 
 ## Git Sub-modules
 
-There are additional sub-modules
+There are additional git sub-modules under `resources` folder:
 
-- [dot-files](https://gitlab.com/papanito/dot-files.git) for publicly available config files
-- [config-files](https://gitlab.com/papanito/config-files.git) for private config files
-- [shell-scripts](https://gitlab.com/papanito/config-files.git) for shell and nautilus scripts
+- [dot-files](https://gitlab.com/papanito/dot-files.git) my dot-files. They are shared in a separate repo.
+- [config-files](https://gitlab.com/papanito/config-files.git) for my config files which may contain more sensitive files - thus this repo is private and not visible.
+- [shell-scripts](https://gitlab.com/papanito/config-files.git) for my collection of shell and nautilus scripts
 
 > **Remark**
 >
 > The project is hosted at [Gitlab](https://gitlab.com/papanito). I automatically synchronize it to Github to share it with Github users.
 
-## Ansible vault
+## Encrpyted Data
 
-The password file is defines in [`ansible.cfg`](./ansible.cfg) so that none vault parameter has to be specified in the project here. However you have to ensure that the referenced password files exists.
-
-The variable `backup_encryption_key` has to be created as follows:
+I use ansible vault to encrypt sensitive data, so I can still share my project. The password file is defined in [`ansible.cfg`](./ansible.cfg), so that no vault parameter has to be specified when running the playbook. Required parameters have to be encrypted accordingly, eg.g the variable `backup_encryption_key`:
 
 ```bash
 ansible-vault encrypt_string  'SupersecretPa$$phrase' --name 'backup_encryption_key'
@@ -44,11 +34,11 @@ ansible-vault encrypt_string  'SupersecretPa$$phrase' --name 'backup_encryption_
 
 Beside of [external roles](./requirements.yml), I have some roles defined as part of this project, which are:
 
-- [core](./roles/core/README.md)
-- [resources](./roles/resources/README.md)
-- [packages](./roles/packages/README.md)
-- [git](./roles/git/README.md)
-- [shell](./roles/shell/README.md)
+- [core](./roles/core/README.md) - does basic stuff
+- [shell](./roles/shell/README.md) - mainly installs zsh and sets it as default shell
+- [resources](./roles/resources/README.md) - Symlinks the resource files and folders (incl. dot-files)
+- [packages](./roles/packages/README.md) - installs additional packages for my Arch Linux (incl. packages in AUR)
+- [git](./roles/git/README.md) - for projects in Github/Gitlab not having packages, this role clones them to a specific folder
 
 ## Backup
 
