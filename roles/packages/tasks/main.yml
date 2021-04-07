@@ -1,22 +1,26 @@
-- include_tasks: packages_pip.yml
+- name: Install packages from "pkg"
+  include_tasks: packages.yml
   ignore_errors: yes
-  loop: "{{ pip_packages }}"
-  loop_control:
-    loop_var: pip_package
-
-- include_tasks: packages.yml
-  ignore_errors: yes
-  loop: "{{ packages }}"
+  loop: "{{ packages.pkg }}"
   loop_control:
     loop_var: package
+  when: packages.pkg is defined
 
-- include_tasks: packages_aur.yml
-  when: ansible_facts['os_family'] == "Archlinux"
+- name: Install packages from "aur"
+  include_tasks: packages_aur.yml
   ignore_errors: yes
-  loop: "{{ aur_packages }}"
+  loop: "{{ packages.aur }}"
   loop_control:
-    loop_var: aur_package
+    loop_var: package
+  when: packages.aur is defined and ansible_facts['os_family'] == "Archlinux"
 
+- name: Install packages from "pip"
+  include_tasks: packages_pip.yml
+  ignore_errors: yes
+  loop: "{{ packages.pip }}"
+  loop_control:
+    loop_var: package
+  when: packages.pip is defined
 
 # cd Photos
 # pipenv install gphotos-sync

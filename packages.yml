@@ -1,0 +1,8 @@
+---
+- name: Playbook which installs/deinstalls packages
+  hosts: localhost
+  vars:
+    remote_user: "{{ localuser }}"
+    user: "{{ localuser }}"
+  roles:
+    - packages

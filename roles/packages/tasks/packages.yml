@@ -1,3 +1,6 @@
-- name: Install {{ package }}
-  become: true
-  package: name={{ package }} state=latest # noqa 403
+- name: Install or remove {{ package['name'] | default(package) }} with pkg
+  package:
+    name: "{{ package.name | default(package) }}"
+    state: "{{ package.status | default(default_package_state) }}"
+  become: yes
+  ignore_errors: yes

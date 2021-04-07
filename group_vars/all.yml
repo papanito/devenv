@@ -1,12 +1,13 @@
 packages:
-  - tmux
-  - bashtop
-
-# for arch linux, packages only found in aur
-aur_packages:
-  - git-extras
-  - lens-bin
-
-pip_packages:
-  - pexpect
-  - pre-commit
+  pkg:
+    - tmux
+    - bashtop
+    - { name: python-hcloud, status: absent}
+  aur: # for arch linux, packages only found in aur
+    - git-extras
+    - lens-bin
+  pip:
+    - pexpect
+    - pre-commit
+    - hcloud
+    - gphotos-sync
