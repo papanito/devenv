@@ -56,6 +56,31 @@
           - { name: hostapd-wpe, type: aur }
           - dsniff
           - hcloud-python
+          - oci-cli
+          - hyperfine
+          - fzf
+          - ripgrep
+          - choose
+          - jq
+          - sd
+          - cheat
+          - tldr
+          - bottom
+          - glances
+          - gtop
+          - gping
+          - procs
+          - httpie
+          - curlie
+          - xh
+          - kb
+          - exa
+          - lsd
+          - delta
+          - dust
+          - duf
+          - { name: broot, type: aur }
+          - fd
   roles:
     - core
     - packages
