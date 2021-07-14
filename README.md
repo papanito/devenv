@@ -15,14 +15,14 @@ Use `setup.sh` to install dependencies and run playbook `main.yml`
 There are additional git sub-modules under `resources` folder:
 
 - [dot-files](https://gitlab.com/papanito/dot-files.git) my dot-files. They are shared in a separate repo.
-- [config-files](https://gitlab.com/papanito/config-files.git) for my config files which may contain more sensitive files - thus this repo is private and not visible.
-- [shell-scripts](https://gitlab.com/papanito/config-files.git) for my collection of shell and nautilus scripts
+- [config-files](https://gitlab.com/papanito/config-files.git) for my config files which may contain more sensitive data - thus this repo is private and not visible.
+- [shell-scripts](https://gitlab.com/papanito/shell-scripts.git) for my collection of shell and nautilus scripts
 
 > **Remark**
 >
 > The project is hosted at [Gitlab](https://gitlab.com/papanito). I automatically synchronize it to Github to share it with Github users.
 
-## Encrpyted Data
+## Encrypted Data
 
 I use ansible vault to encrypt sensitive data, so I can still share my project. The password file is defined in [`ansible.cfg`](./ansible.cfg), so that no vault parameter has to be specified when running the playbook. Required parameters have to be encrypted accordingly, eg.g the variable `backup_encryption_key`:
 

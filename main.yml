@@ -81,6 +81,7 @@
           - duf
           - { name: broot, type: aur }
           - fd
+          - age
   roles:
     - core
     - packages
