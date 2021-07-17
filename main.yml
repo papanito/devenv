@@ -27,6 +27,23 @@
           3263343939656361300a656632316164633961356362346438323534666637636264313135613162
           63643464636634346436663961323663383235353939316638663632333833336363
     default_workspace: "~/Workspaces/tools"
+    sn_username: aedu
+    sn_install_desktop_notifier_service: Yes
+    sn_install_googlechat_notifier_service: Yes
+    sn_googlechat_url: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          65316165613864643966353638363366316361383433646464393532353632346239363139633534
+          3832333833373762393764653235383762393138306539330a613134396162303034633961303139
+          32336634363766663861663865373939306566393932373963376165343937396636626132376637
+          3963646530363363320a666635306266306330383538386335386366393634353435646235376465
+          66383937663230613734356638643931646533376538613133613864303635386363626637653865
+          31396430353665653263663430363838396231636531613966643237623136316131323764346631
+          35313932643863663433393866356461373565346161376535313236303835613762386362666265
+          35303139623165656230303263623764376439623735663762633030623331613966386233323037
+          61616430313532613064613263663235353436386330643434663532666532323135643265376363
+          64343363323137333163336630666631303237626539313466356130363263336632383634353330
+          31636337343534633738326538346465343237316264376432366563636235383335393765626435
+          34643936633436323431
     git_repos:
       social-analyzer:
         repo: git@github.com:qeeqbox/social-analyzer.git
@@ -85,19 +102,32 @@
   roles:
     - core
     - packages
-    - { role: resources, stow_version: 2.2.2-5 }
+    - role: resources
+      vars:
+        stow_version: 2.2.2-5
     - git
     - shell
-    - { role: papanito.git, ignore_errors: yes }
+    - role: papanito.git
+      ignore_errors: yes
     - { role: papanito.diskmounter, ignore_errors: yes }
     - { role: papanito.cloudflared, install_only: True }
+    - role: papanito.systemd_notifiers
+      install_only: True
+      tags:
+      - backup
 
 - name: Include backup playbook to setup remote backup
   import_playbook: playbooks/backup.yml
   when: remote_backup is defined
+  tags:
+  - backup
 - name: Include backup playbook to setup local backup to WD Elements
   import_playbook: playbooks/backup_local_elements.yml
   when: local_backup is defined
+  tags:
+  - backup
 - name: Include backup playbook to setup local backup to portable elements disk
   import_playbook: playbooks/backup_local_portable.yml
   when: local_backup is defined
+  tags:
+  - backup

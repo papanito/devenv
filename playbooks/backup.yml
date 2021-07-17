@@ -25,6 +25,9 @@
   - backup_encryption_method: repokey
   - target_dir: "./backups/"
   - backup_schedule: "*-*-* 03:00:00"
+  - borg_systemd_on_failure: systemd-desktop-notifier@%N.service,systemd-googlechat-notifier@%N.service
+  - borg_systemd_user: aedu
+  - borg_systemd_group: aedu
 
   roles:
   - role: papanito.borg
