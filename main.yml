@@ -99,6 +99,8 @@
           - { name: broot, type: aur }
           - fd
           - age
+      openmetadata:
+        repo: git@github.com:open-metadata/OpenMetadata
   roles:
     - core
     - packages
