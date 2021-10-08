@@ -8,7 +8,7 @@
       3137616461383036650a316334363031303266613431623234316635336265366133376537323061
       39303538343064346562303533643739326266323862623932386261306436386265
   - backup_encryption_method: repokey
-  - target_dir: "/run/media/aedu/Elements/Backup"
+  - target_dir: "/mnt/fritzbox/Elements/Backup"
   - backup_delete: false
   - backup_create: true
   - borg_systemd_on_failure: systemd-desktop-notifier@%N.service,systemd-googlechat-notifier@%N.service

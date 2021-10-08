@@ -1,5 +1,4 @@
 roles:
-  - name: kewlfft.aur
   - name: papanito.cloudflared
   # own roles
   - src: https://git@github.com/papanito/ansible-role-git.git
@@ -24,3 +23,4 @@ collections:
   - name: hetzner.hcloud
   - name: geerlingguy.php_roles
     source: https://galaxy.ansible.com
+  - name: kewlfft.aur

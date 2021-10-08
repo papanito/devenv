@@ -1,0 +1,7 @@
+---
+- hosts: all
+  vars:
+    remote_user: "{{ localuser }}"
+    user: "{{ localuser }}"
+  roles:
+    - { role: papanito.diskmounter, ignore_errors: yes }
