@@ -102,22 +102,40 @@
       openmetadata:
         repo: git@github.com:open-metadata/OpenMetadata
   roles:
-    - core
-    - packages
+    - role: core
+      tags:
+      - essential
+    - role: packages
+      tags:
+      - essential
     - role: resources
       vars:
         stow_version: 2.2.2-5
-    - git
-    - shell
+      tags:
+      - essential
+    - role: git
+      tags:
+      - essential
+    - role: shell
+      tags:
+      - essential
     - role: papanito.git
       ignore_errors: yes
-    - { role: papanito.diskmounter, ignore_errors: yes }
-    - { role: papanito.cloudflared, install_only: True }
+      tags:
+      - essential
+    - role: papanito.cloudflared
+      install_only: True
+      tags:
+      - network
     - role: papanito.systemd_notifiers
       install_only: True
       tags:
       - backup
 
+- name: Include mount-disk playbook
+  import_playbook: playbooks/mount-disks.yml
+  tags:
+  - mount
 - name: Include backup playbook to setup remote backup
   import_playbook: playbooks/backup.yml
   when: remote_backup is defined
