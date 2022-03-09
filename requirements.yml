@@ -5,10 +5,10 @@ roles:
     name: papanito.git
     scm: git
     version: master
-  - src: https://git@github.com/papanito/ansible-role-borg.git
-    name: papanito.borg
+  - src: https://git@github.com/papanito/ansible-role-backup.git
+    name: papanito.backup
     scm: git
-    version: master
+    version: main
   - src: https://git@github.com/papanito/ansible-role-diskmounter.git
     name: papanito.diskmounter
     scm: git
