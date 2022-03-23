@@ -1,4 +1,4 @@
-- aur:
+- kewlfft.aur.aur:
     name: "{{ package['name'] | default(package) }}"
     state: "{{ package.status | default(default_package_state) }}"
   ignore_errors: yes
