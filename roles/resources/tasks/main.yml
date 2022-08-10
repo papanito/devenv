@@ -1,9 +1,17 @@
-- name: Install stow
+- name: Install packages
   become: true
-  package: name={{ item }} state=latest # noqa 403
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: latest # noqa 403
   with_items:
     - stow
+    - chezmoi
+  tags:
+    - dotfiles
 
-- name: Install resource folder
-  include_tasks: install_resources.yml
-  loop: "{{ resource_folders | dict2items }}"
+- name: Initialize chezmoi
+  ansible.builtin.import_tasks:
+    file: chezmoi.yml
+  tags:
+    - chezmoi
+    - dotfiles

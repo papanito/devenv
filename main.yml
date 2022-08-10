@@ -3,8 +3,13 @@
   vars:
     remote_user: "{{ localuser }}"
     user: "{{ localuser }}"
-    dotfiles_src: dot-files
-    dotfiles_profile: personal
+    chezmoi_passphrase: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          61336333656362393238333833366234376634616232356565613738343165386138356436333236
+          3936363839643433366436643062306231326530323631350a343831666432393661663535333361
+          34633364306638623566646430303631613031303839373433313931313932653462656234303066
+          3532323939386430340a383564326439396538363733643832373962643962356166343665623865
+          31373233346437653837623333313137336531326231663335383261306636303138
     git_user_name: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           66373161633739636538343666343631656264613237383562636430313437623332646663386335
@@ -27,6 +32,7 @@
           3263343939656361300a656632316164633961356362346438323534666637636264313135613162
           63643464636634346436663961323663383235353939316638663632333833336363
     default_workspace: "~/Workspaces/tools"
+    chezmoi_init_url: git@gitlab.com:papanito/dotfiles.git
     sn_username: aedu
     sn_install_desktop_notifier_service: Yes
     sn_install_googlechat_notifier_service: Yes
@@ -50,6 +56,7 @@
       airgeddon:
         repo: git@github.com:v1s1t0r1sh3r3/airgeddon.git
         dependencies:
+          - { name: antigen, type: aur }
           - { name: crunch, type: aur }
           - aircrack-ng
           - xterm
@@ -99,8 +106,13 @@
           - { name: broot, type: aur }
           - fd
           - age
+          - { name: navi, type: aur }
+          - { name: chezmoi, type: aur }
       openmetadata:
         repo: git@github.com:open-metadata/OpenMetadata
+## TODO
+#         ln -s ~/Workspaces/papanito/cheatsheets ~/.config/cheat/cheatsheets/personal
+
   roles:
     - role: core
       tags:
@@ -113,12 +125,11 @@
         stow_version: 2.2.2-5
       tags:
       - essential
-    - role: git
-      tags:
-      - essential
     - role: shell
       tags:
       - essential
+      - shell
+      - chezmoi
     - role: papanito.git
       ignore_errors: yes
       tags:

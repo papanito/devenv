@@ -1,9 +1,3 @@
-[submodule "dot-files"]
-	path = resources/dot-files
-	url = ../../papanito/dot-files.git
-[submodule "config-files"]
-	path = resources/config-files
-	url = ../../papanito/config-files.git
 [submodule "shell-scripts"]
 	path = resources/shell-scripts
 	url = ../../papanito/shell-scripts.git

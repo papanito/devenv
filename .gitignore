@@ -8,4 +8,5 @@
 # End of https://www.toptal.com/developers/gitignore/api/ansible
 
 .cache
+.key
 roles/papanito.backup

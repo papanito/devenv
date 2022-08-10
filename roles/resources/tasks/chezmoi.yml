@@ -1,0 +1,27 @@
+- name: Check that the chezmoi.toml exists
+  ansible.builtin.stat:
+    path: ~/.config/chezmoi/chezmoi.toml
+  register: stat_result
+
+- name: Initialize chezmoi
+  block:
+    - name: Pass config parameters
+      expect:
+        command: "chezmoi init --apply --verbose {{ chezmoi_init_url }}"
+        responses:
+          passphrase: "{{ chezmoi_passphrase }}"
+          user: "{{ git_user_name }}"
+          username: "{{ git_user_name }}"
+          email: "{{ git_user_email }}"
+          signkey: "{{ git_user_email }}"
+  when: not stat_result.stat.exists
+  tags:
+    - chezmoi
+    - dotfiles
+
+- name: Apply chezmoi state
+  ansible.builtin.command: "chezmoi apply"
+  when: stat_result.stat.exists
+  tags:
+    - chezmoi
+    - dotfiles
