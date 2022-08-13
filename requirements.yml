@@ -1,6 +1,10 @@
 roles:
   - name: papanito.cloudflared
   # own roles
+  - src: https://git@github.com/papanito/ansible-role-git.git
+    name: papanito.git
+    scm: git
+    version: master
   - src: https://git@github.com/papanito/ansible-role-backup.git
     name: papanito.backup
     scm: git
