@@ -133,13 +133,14 @@
       tags:
       - essential
     - role: papanito.systemd_notifiers
-      install_only: True
+      vars:
+        install_only: True
       tags:
       - backup
     - role: papanito.cloudflared
-      install_only: True
+      vars:
+        cf_install_only: True
       become: True
-      no_log: True
       tags:
       - network
 
