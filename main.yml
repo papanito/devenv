@@ -51,6 +51,8 @@
           31636337343534633738326538346465343237316264376432366563636235383335393765626435
           34643936633436323431
     git_repos:
+      openmetadata:
+        repo: git@github.com:open-metadata/OpenMetadata
       social-analyzer:
         repo: git@github.com:qeeqbox/social-analyzer.git
       airgeddon:
@@ -108,10 +110,6 @@
           - age
           - { name: navi, type: aur }
           - { name: chezmoi, type: aur }
-      openmetadata:
-        repo: git@github.com:open-metadata/OpenMetadata
-## TODO
-#         ln -s ~/Workspaces/papanito/cheatsheets ~/.config/cheat/cheatsheets/personal
 
   roles:
     - role: core
@@ -134,14 +132,16 @@
       ignore_errors: yes
       tags:
       - essential
-    - role: papanito.cloudflared
-      install_only: True
-      tags:
-      - network
     - role: papanito.systemd_notifiers
       install_only: True
       tags:
       - backup
+    - role: papanito.cloudflared
+      install_only: True
+      become: True
+      no_log: True
+      tags:
+      - network
 
 - name: Include mount-disk playbook
   import_playbook: playbooks/mount-disks.yml

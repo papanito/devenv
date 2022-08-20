@@ -3,18 +3,20 @@ FORCE=""
 APPLY="--check"
 RUNPLAY=false
 UPGRADE=false
+TAGS=""
 
 SITE_YML="main.yml"
 
 # Function: Print a help message.
 usage() {
     cat <<EOF
-   Usage: $0 [ -p ] [ -a ] [ -f ]
+   Usage: $0 [ -p ] [ -a ] [ -f ] [ -t ]
    We are using ansible thus first ensure to have all requirements on your machine
    -a apply changes for play $SITE_YML, works only with -p
    -p runs playbook ($SITE_YML) in dry run
    -f forced installation of dependecies
    -u do system upgrade
+   -t TAGS only execute TAGS
 EOF
 }
 
@@ -28,7 +30,7 @@ if [ "$#" -ne 1 ]; then
     exit_abnormal
 fi
 
-while getopts "pasfcb:u" option; do
+while getopts "pasfcb:ut:" option; do
     case ${option} in
     a)
         APPLY=""
@@ -41,6 +43,9 @@ while getopts "pasfcb:u" option; do
         ;;
     u)
         UPGRADE=true
+        ;;
+    t)
+        TAGS="--tags ${OPTARG}"
         ;;
     \?)
         exit_abnormal
@@ -57,7 +62,7 @@ if ($RUNPLAY); then
     echo "---------------------------------------------------"
     echo "Run ansible play '$SITE_YML' with '$APPLY'"
     echo "---------------------------------------------------"
-    ansible-playbook $SITE_YML $APPLY --ask-become-pass
+    ansible-playbook $SITE_YML $APPLY --ask-become-pass $TAGS
 fi
 
 if ($UPGRADE); then
