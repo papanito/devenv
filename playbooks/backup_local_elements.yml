@@ -11,7 +11,7 @@
   - target_dir: "/mnt/fritzbox/Elements/Backup"
   - backup_delete: false
   - backup_create: true
-  - borg_systemd_on_failure: systemd-desktop-notifier@%N.service,systemd-googlechat-notifier@%N.service
+  # - borg_systemd_on_failure: systemd-desktop-notifier@%N.service,systemd-googlechat-notifier@%N.service
   - borg_systemd_user: aedu
   - borg_systemd_group: aedu
 
@@ -22,4 +22,4 @@
       register: stat_result
 
   roles:
-  - { role: papanito.borg, when: stat_result.stat.exists }
+  - { role: papanito.backup, when: stat_result.stat.exists }
