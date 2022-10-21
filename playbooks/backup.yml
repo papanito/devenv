@@ -3,7 +3,7 @@
   - backup_name: clawfinger
   - backup_engine: restic
   - backup_target_dir: ""
-  - backup_schedule: "*-*-* 03:00:00"
+  - backup_schedule: "*-*-* 06:20:00"
   - backup_systemd_on_failure: systemd-desktop-notifier@%N.service,systemd-googlechat-notifier@%N.service
   - backup_script_user: root
   - backup_script_group: wheel

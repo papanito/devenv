@@ -114,52 +114,52 @@
   roles:
     - role: core
       tags:
-      - essential
+        - essential
     - role: packages
       tags:
-      - essential
+        - essential
     - role: resources
       vars:
         stow_version: 2.2.2-5
       tags:
-      - essential
+        - essential
     - role: shell
       tags:
-      - essential
-      - shell
-      - chezmoi
+        - essential
+        - shell
+        - chezmoi
     - role: papanito.git
       ignore_errors: yes
       tags:
-      - essential
+        - essential
     - role: papanito.systemd_notifiers
       vars:
         install_only: True
       tags:
-      - backup
+        - backup
     - role: papanito.cloudflared
       vars:
         cf_install_only: True
       become: True
       tags:
-      - network
+        - network
 
 - name: Include mount-disk playbook
   import_playbook: playbooks/mount-disks.yml
   tags:
-  - mount
+    - mount
 - name: Include backup playbook to setup remote backup
   import_playbook: playbooks/backup.yml
   when: remote_backup is defined
   tags:
-  - backup
-- name: Include backup playbook to setup local backup to WD Elements
-  import_playbook: playbooks/backup_local_elements.yml
-  when: local_backup is defined
-  tags:
-  - backup
-- name: Include backup playbook to setup local backup to portable elements disk
-  import_playbook: playbooks/backup_local_portable.yml
-  when: local_backup is defined
-  tags:
-  - backup
+    - backup
+# - name: Include backup playbook to setup local backup to WD Elements
+#   import_playbook: playbooks/backup_local_elements.yml
+#   when: local_backup is defined
+#   tags:
+#     - backup
+# - name: Include backup playbook to setup local backup to portable elements disk
+#   import_playbook: playbooks/backup_local_portable.yml
+#   when: local_backup is defined
+#   tags:
+#    - backup
