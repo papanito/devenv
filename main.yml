@@ -34,8 +34,8 @@
     default_workspace: "~/Workspaces/tools"
     chezmoi_init_url: git@gitlab.com:papanito/dotfiles.git
     sn_username: aedu
-    sn_install_desktop_notifier_service: Yes
-    sn_install_googlechat_notifier_service: Yes
+    sn_install_desktop_notifier_service: true
+    sn_install_googlechat_notifier_service: true
     sn_googlechat_url: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           65316165613864643966353638363366316361383433646464393532353632346239363139633534
@@ -58,8 +58,13 @@
       airgeddon:
         repo: git@github.com:v1s1t0r1sh3r3/airgeddon.git
         dependencies:
-          - { name: antigen, type: aur }
-          - { name: crunch, type: aur }
+          - {name: antigen, type: aur}
+          - {name: crunch, type: aur}
+          - {name: asleap, type: aur}
+          - {name: hostapd-wpe, type: aur}
+          - {name: broot, type: aur}
+          - {name: navi, type: aur}
+          - {name: chezmoi, type: aur}
           - aircrack-ng
           - xterm
           - ettercap
@@ -74,12 +79,10 @@
           - lighttpd
           - openssl
           - bettercap
-          - { name: asleap, type: aur }
           - hashcat
           - wireshark-cli
           - mdk4
           - bully
-          - { name: hostapd-wpe, type: aur }
           - dsniff
           - hcloud-python
           - oci-cli
@@ -105,11 +108,9 @@
           - delta
           - dust
           - duf
-          - { name: broot, type: aur }
           - fd
           - age
-          - { name: navi, type: aur }
-          - { name: chezmoi, type: aur }
+          - sysstat
 
   roles:
     - role: core
@@ -129,18 +130,18 @@
         - shell
         - chezmoi
     - role: papanito.git
-      ignore_errors: yes
+      ignore_errors: true
       tags:
         - essential
     - role: papanito.systemd_notifiers
       vars:
-        install_only: True
+        install_only: true
       tags:
         - backup
     - role: papanito.cloudflared
       vars:
-        cf_install_only: True
-      become: True
+        cf_install_only: true
+      become: true
       tags:
         - network
 
